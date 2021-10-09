@@ -49,10 +49,10 @@ public class AppointmentController {
 
 	}
 
-	   @PutMapping("/cancelAppointment/{id}/{cancelReason}")
-	    public ResponseEntity<String> cancelAppointment(@PathVariable Long id,@PathVariable String cancelReason) {
+	   @PutMapping("/cancelAppointment/{appointmentId}/{cancelReason}")
+	    public ResponseEntity<String> cancelAppointment(@PathVariable Long appointmentId,@PathVariable String cancelReason) {
 	       try { 
-	    	   String status=appointmentService.cancelAppointment(id,cancelReason);
+	    	   String status=appointmentService.cancelAppointment(appointmentId,cancelReason);
 	        return new ResponseEntity<String>(status, HttpStatus.OK);
 	       }catch (Exception e) {
 			e.printStackTrace();
