@@ -25,14 +25,6 @@ public class AppointmentController {
 	@Autowired
 	private AppointmentService appointmentService;
 
-	/*
-	 * @PutMapping("/createUser/{userName}/{email}") public String
-	 * createUser(@PathVariable(name = "userName") String userName,
-	 * 
-	 * @PathVariable(name = "email") String email) { Users
-	 * user=userService.createUser(userName, email); if(user != null) { return
-	 * "added sucessfully"; }else { return "this users already registerd"; } }
-	 */
 
 	@GetMapping("/AllAppointments")
 	public List<AppointmentDTO> getAllAppointment() {
@@ -46,7 +38,7 @@ public class AppointmentController {
 	}
 
 	@PostMapping("/createAppointments")
-	public String createUser(@RequestBody AppointmentDTO appointmentDTO) {
+	public String createAppointments(@RequestBody AppointmentDTO appointmentDTO) {
 		try {
 			String status = appointmentService.createAppointment(appointmentDTO);
 			return status;
